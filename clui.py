@@ -13,5 +13,5 @@ class CLUI:
         user_action_choice = input("Please enter your choice")
         return user_action_choice
 
-    def return_output(self):
+    def display_output(self):
         pass

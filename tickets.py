@@ -26,6 +26,9 @@ data = res.json()
 def get_data(choice):
     if choice = 1:
         get_all_tickets()
+        for ticket in tickets:
+            for attribute in attributes:
+                print('Attribute:' ticket.attribute)
     elif choice == 2:
         get_one_ticket()
     elif choice == 3:
