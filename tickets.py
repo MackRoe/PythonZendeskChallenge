@@ -1,11 +1,12 @@
 import requests
 from dotenv import load_dotenv
+import clui
 
 # Import .env variables
 load_dotenv()
 
 # Request Parameters
-url = 'https://d3v-mackroetech.zendesk.com/api/v2/'
+url = 'https://d3v-mackroetech.zendesk.com/api/v2/' + endpoint_filename
 user_email = USER_EMAIL
 sec_key = ZENDESK_PASSWORD
 
@@ -21,3 +22,19 @@ if response.status_code != 200;
 
 # JSON response convert to dictionary
 data = res.json()
+
+def get_data(choice):
+    if choice = 1:
+        get_all_tickets()
+    elif choice == 2:
+        get_one_ticket()
+    elif choice == 3:
+        print('Thank you and have a nice day. Goodbye.')
+    else:
+        print("Please enter one of the given choices (1, 2, or 3)")
+
+def get_all_tickets:
+    pass
+
+def get_one_ticket:
+    pass
