@@ -31,7 +31,7 @@ def get_all_tickets(count):
         # build ids array
     ids = array_helper.make_array()
     # build the request url
-    url = base_url + "show_many?ids={ids}"
+    url = base_url + "show_many\?ids\={ids}"
     # make the request
     res = requests.get(url, auth=(user_email, sec_key))
     # Decode JSON into dictionary
@@ -83,5 +83,5 @@ def main(count):
     choice = clui.get_input()
     get_data(choice, count)
 
-# Runs Program 
+# Runs Program
 main(100)

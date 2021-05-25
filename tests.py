@@ -19,3 +19,7 @@ class TestTickets(unittest.TestCase):
         get_data(3, 0)
         captured = capsys.readouterr()
         assert captured.out == 'Thank you and have a nice day. Goodbye.\n'
+
+    def test_page_response():
+        test_url = "https://www.google.com/search?q=weather+results&oq=weather+results&aqs=chrome..69i57.4626j0j1&sourceid=chrome&ie=UTF-8"
+        assert str(get_page(test_url2)) == "<Response [200]>"
