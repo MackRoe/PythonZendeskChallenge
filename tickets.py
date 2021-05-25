@@ -64,17 +64,22 @@ def get_one_ticket(ticket_number):
     res = requests.get(url, auth=(user_email, sec_key))
     # Decode JSON into python dict
     ticket = res.json()
-    print('--------------')
-    print('*** RAW DATA ***')
-    print(ticket)
-    print('--------------')
+    # Check for HTTP codes other than 200
+    if res.status_code != 200:
+        print('Status:', res.status_code, 'Server Unavailable: Attempt Aborted.')
+        exit()
+    else:
+        print('--------------')
+        print('*** RAW DATA ***')
+        print(ticket)
+        print('--------------')
 
-    # ** Print Statements Commented Out for Debug **
-    # print("Ticket Subject: ", ticket['subject'])
-    # print("Created at ", ticket['ticket.created_at'])
-    # print("By User", ticket['submitter_id'])
-    # print("Status: ", ticket['status'])
-    # print('')
+        # ** Print Statements Commented Out for Debug **
+        # print("Ticket Subject: ", ticket['subject'])
+        # print("Created at ", ticket['ticket.created_at'])
+        # print("By User", ticket['submitter_id'])
+        # print("Status: ", ticket['status'])
+        # print('')
 
 
 def main(count):
