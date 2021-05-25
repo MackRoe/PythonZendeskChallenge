@@ -1,12 +1,8 @@
 # Commang Line User Interface
-
-# TODO: Import retrieved data from tickets.py to display?
-
-# class CLUI:
-#     def __init__(self):
-#         pass
+# clui.py
 
 def display_choices():
+    ''' Displays the choices available to the user '''
     print("")
     print("*** Zendesk Ticket Viewer ***")
     print("")
@@ -15,8 +11,10 @@ def display_choices():
     print("Choice 3: Exit (Enter: 3)")
 
 def get_input():
+    ''' Gets the user choice from the terminal '''
     user_action_choice = input("Please enter your choice: ")
     return int(user_action_choice)
 
-def display_output(self):
-    pass
+def get_ticket_number():
+    ticket_number = input("Please enter the number of the ticket you wish to view: ")
+    return int(ticket_number)

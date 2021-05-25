@@ -33,6 +33,10 @@ Then enter the following to run the program:
 
 `python3 tickets.py`
 
+You should see the following:
 
+![CLUI](ZendeskCLUI.png)
+
+Enter your choice to see the program in action!
 
 ## Testing
