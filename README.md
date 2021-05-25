@@ -39,4 +39,6 @@ You should see the following:
 
 Enter your choice to see the program in action!
 
-## Testing
+*As of most recent commit, choice options 2 and 3 are functional. Choice 1 causes a program crash with an error that reads as follows*
+
+`json.decoder.JSONDecodeError: Invalid \escape`
