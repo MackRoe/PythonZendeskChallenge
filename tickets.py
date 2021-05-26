@@ -29,10 +29,11 @@ def get_data(choice, count):
 
 def get_all_tickets(count):
     ''' Get all the tickets from the Zendesk API '''
+    # build a comma seperated value string
     ids = array_helper.make_array()
 
     # build the request url
-    url = base_url + "show_many?ids={ids}"
+    url = base_url + "1"
     # make the request
     res = requests.get(url, auth=(user_email, sec_key))
     print(res.content)
@@ -44,19 +45,26 @@ def get_all_tickets(count):
         print('Status:', res.status_code, 'Server Unavailable: Attempt Aborted.')
         exit()
     else:
-        # TODO: Use python module prettyprint
-        for ticket in tickets:
-            print('--------------')
-            print('*** TICKET DATA ***')
-            print(ticket)
-            print('--------------')
+        for i in range(1, 100):
+            # build request url
+            url = base_url + str(i)
+            # GET record from API
+            res = requests.get(url, auth=(user_email, sec_key))
+            # Decode JSON into python dict
+            data = res.json()
+            for dat in data:
+                print('--------------')
+                print('*** TICKET', i, '***')
+                pprint(data)
 
-            # ** Print Statements Commented Out for Debug **
-            # print("Ticket Subject: ", ticket['subject'])
-            # print("Created at ", ticket['created_at'])
-            # print("By User", ticket['submitter_id'])
-            # print("Status: ", ticket['status'])
-            # print('')
+
+                # ** Print Statements Commented Out for Debug **
+                # print("Ticket Subject: ", ticket['subject'])
+                # print("Created at ", ticket['created_at'])
+                # print("By User", ticket['submitter_id'])
+                # print("Status: ", ticket['status'])
+                print('--------------')
+                # print('')
 
 
 def get_one_ticket(ticket_number):
