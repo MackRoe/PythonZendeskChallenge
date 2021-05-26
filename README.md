@@ -39,4 +39,4 @@ You should see the following:
 
 Enter your choice to see the program in action!
 
-*As of most recent commit, choice options 2 and 3 are functional. Choice 1 triggers an error*
+*(As of most recent commit, choice options 2 and 3 are functional. Choice 1 triggers an error.)*

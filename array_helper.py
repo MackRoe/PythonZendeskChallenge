@@ -14,7 +14,7 @@ def make_array():
     comma_seperated_values = '1'
 
     comma_seperated_values=', '.join(new_array)
-    print(comma_seperated_values)
+    # print(comma_seperated_values)
     return comma_seperated_values
 
 # Uncomment to debug *
