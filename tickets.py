@@ -1,6 +1,7 @@
 import requests
 from dotenv import load_dotenv
 import os
+from pprint import pprint
 import clui
 import array_helper
 
@@ -28,12 +29,13 @@ def get_data(choice, count):
 
 def get_all_tickets(count):
     ''' Get all the tickets from the Zendesk API '''
-        # build ids array
     ids = array_helper.make_array()
+
     # build the request url
-    url = base_url + "show_many\?ids\={ids}"
+    url = base_url + "show_many?ids={ids}"
     # make the request
     res = requests.get(url, auth=(user_email, sec_key))
+    print(res.content)
     # Decode JSON into dictionary
     tickets = res.json()
     print('')
@@ -42,9 +44,10 @@ def get_all_tickets(count):
         print('Status:', res.status_code, 'Server Unavailable: Attempt Aborted.')
         exit()
     else:
+        # TODO: Use python module prettyprint
         for ticket in tickets:
             print('--------------')
-            print('*** RAW DATA ***')
+            print('*** TICKET DATA ***')
             print(ticket)
             print('--------------')
 
@@ -70,8 +73,8 @@ def get_one_ticket(ticket_number):
         exit()
     else:
         print('--------------')
-        print('*** RAW DATA ***')
-        print(ticket)
+        print('*** TICKET DATA ***')
+        pprint(ticket)
         print('--------------')
 
         # ** Print Statements Commented Out for Debug **
@@ -89,4 +92,5 @@ def main(count):
     get_data(choice, count)
 
 # Runs Program
-main(100)
+if __name__ == "__main__":
+    main(100)
